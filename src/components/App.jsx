@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import ContactList from './ContactList/ContactList';
-import AddContact from './AddContact/AddContact';
-import Section from './Section/Section';
+import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 export class App extends Component {
   state = {
@@ -85,21 +84,19 @@ export class App extends Component {
           backgroundColor: '#dcdcdc',
         }}
       >
-        <Section text="Phonebook">
-          <AddContact handleSubmit={this.handleSubmit} />
-        </Section>
+        <h1> Phonebook</h1>
+        <ContactForm handleSubmit={this.handleSubmit} />
 
-        <Section text="Contacts">
-          {contacts.length > 1 && <Filter findContact={this.findContact} />}
-          {contacts.length > 0 && (
-            <ContactList
-              contacts={contacts}
-              deleteContact={this.deleteContact}
-              filter={filter}
-            />
-          )}
-          {contacts.length === 0 && <p>Your contact list is empty</p>}
-        </Section>
+        <h2> Contacts </h2>
+        {contacts.length > 1 && <Filter findContact={this.findContact} />}
+        {contacts.length > 0 && (
+          <ContactList
+            contacts={contacts}
+            deleteContact={this.deleteContact}
+            filter={filter}
+          />
+        )}
+        {contacts.length === 0 && <p>Your contact list is empty</p>}
       </div>
     );
   }

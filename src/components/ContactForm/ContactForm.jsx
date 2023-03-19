@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import css from './AddContact.module.css';
+import css from './ContactForm.module.css';
 
 export default class AddContact extends Component {
   static propTypes = {
