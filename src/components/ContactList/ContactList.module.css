@@ -1,0 +1,27 @@
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.items > li {
+  width: 60vw;
+  padding: 5px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.items > li:nth-last-of-type(even) {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+li > button {
+  all: unset;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid black;
+  transition: background-color 250ms linear;
+}
+li > button:hover {
+  background-color: rgb(255, 255, 255);
+}

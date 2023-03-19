@@ -1,0 +1,27 @@
+.form {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form > input {
+  all: unset;
+  cursor: text;
+  padding: 15px;
+  border: 1px solid rgb(144, 144, 144);
+  background-color: white;
+  border-radius: 5px;
+}
+button {
+  all: unset;
+
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid black;
+  transition: background-color 250ms linear;
+  text-align: center;
+}
+button:hover {
+  background-color: rgb(255, 255, 255);
+}
