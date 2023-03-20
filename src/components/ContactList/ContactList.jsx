@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
+
 class ContactList extends Component {
   static propTypes = {
     contacts: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),

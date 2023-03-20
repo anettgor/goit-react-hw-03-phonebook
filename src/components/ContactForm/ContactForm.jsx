@@ -10,14 +10,7 @@ export default class AddContact extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px',
-        }}
-        onSubmit={handleSubmit}
-      >
+      <form className={css.formContainer} onSubmit={handleSubmit}>
         <label className={css.form}>
           Name
           <input

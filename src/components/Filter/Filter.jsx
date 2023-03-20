@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import css from './Filter.module.css';
+import cssExport from './../ContactForm/ContactForm.module.css';
 class Filter extends Component {
   static propTypes = {
     findContact: PropTypes.func,
@@ -11,7 +11,7 @@ class Filter extends Component {
 
     return (
       <>
-        <label className={css.form}>
+        <label className={cssExport.form}>
           Find contacts by name
           <input
             type="text"

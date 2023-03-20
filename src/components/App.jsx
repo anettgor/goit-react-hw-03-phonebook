@@ -3,6 +3,8 @@ import { nanoid } from 'nanoid';
 import ContactList from './ContactList/ContactList';
 import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
+import css from './App.module.css';
+
 export class App extends Component {
   state = {
     contacts: [
@@ -12,8 +14,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   handleSubmit = e => {
@@ -72,18 +72,7 @@ export class App extends Component {
   render() {
     const { filter, contacts } = this.state;
     return (
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-          fontSize: 15,
-          color: '#010101',
-          backgroundColor: '#dcdcdc',
-        }}
-      >
+      <div className={css.container}>
         <h1> Phonebook</h1>
         <ContactForm handleSubmit={this.handleSubmit} />
 
