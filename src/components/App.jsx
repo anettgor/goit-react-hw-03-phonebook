@@ -7,13 +7,47 @@ import css from './App.module.css';
 
 export class App extends Component {
   state = {
-    contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-    ],
+    contacts: [],
     filter: '',
+  };
+
+  componentDidMount() {
+    const loadedContacts = this.load('contacts');
+    if (loadedContacts) {
+      this.setState({
+        contact: loadedContacts,
+      });
+    }
+
+    console.log('%c Component did mount', 'background-color: lavender ');
+  }
+
+  componentDidUpdate(prevState) {
+    if (
+      this.state.contacts !== prevState.contacts &&
+      this.state.contacts !== []
+    ) {
+      this.save('contacts', this.state.contacts);
+      console.log('%c component did update', 'background-color: lightpink');
+    }
+  }
+
+  save = (key, value) => {
+    try {
+      const serializedState = JSON.stringify(value);
+      localStorage.setItem(key, serializedState);
+    } catch (error) {
+      console.error('Set state error: ', error.message);
+    }
+  };
+
+  load = key => {
+    try {
+      const serializedState = localStorage.getItem(key);
+      return serializedState === null ? undefined : JSON.parse(serializedState);
+    } catch (error) {
+      console.error('Get state error: ', error.message);
+    }
   };
 
   handleSubmit = e => {
@@ -46,6 +80,7 @@ export class App extends Component {
       this.setState(prev => ({
         contacts: [...prev.contacts, newContact],
       }));
+
       form.reset();
     }
   };

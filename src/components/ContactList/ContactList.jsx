@@ -35,5 +35,9 @@ class ContactList extends Component {
       </ul>
     );
   }
+  componentWillUnmount() {
+    console.log('%c component Unmounted', 'background-color:tomato');
+  }
 }
+
 export default ContactList;
