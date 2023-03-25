@@ -13,12 +13,12 @@ export class App extends Component {
 
   componentDidMount() {
     const loadedContacts = this.load('contacts');
+
     if (loadedContacts) {
       this.setState({
-        contact: loadedContacts,
+        contacts: loadedContacts,
       });
     }
-
     console.log('%c Component did mount', 'background-color: lavender ');
   }
 
@@ -30,6 +30,7 @@ export class App extends Component {
       this.save('contacts', this.state.contacts);
       console.log('%c component did update', 'background-color: lightpink');
     }
+    return;
   }
 
   save = (key, value) => {
@@ -94,6 +95,7 @@ export class App extends Component {
     contactsNew.splice(index, 1);
 
     this.setState({ contacts: contactsNew });
+    alert('Contact Successfully Deleted');
   };
 
   findContact = e => {
