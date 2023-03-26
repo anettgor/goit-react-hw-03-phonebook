@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import Notify from 'notiflix';
+
 import ContactList from './ContactList/ContactList';
 import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
@@ -72,12 +74,13 @@ export class App extends Component {
         contact => contact.name.toLowerCase() === name.toLowerCase()
       )
     ) {
-      alert(`Contact ${name} is already in your contact list`);
+      Notify.info(`Contact ${name} is already in your contact list`);
     } else if (contacts.find(contact => contact.number === number)) {
-      alert(
+      Notify.info(
         `Contact ${number} is already in your contact list under a different name`
       );
     } else {
+      Notify.success(`Contact ${name} successfully added`);
       this.setState(prev => ({
         contacts: [...prev.contacts, newContact],
       }));
@@ -95,7 +98,7 @@ export class App extends Component {
     contactsNew.splice(index, 1);
 
     this.setState({ contacts: contactsNew });
-    alert('Contact Successfully Deleted');
+    Notify.info('Contact Successfully Deleted');
   };
 
   findContact = e => {
