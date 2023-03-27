@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-import Notify from 'notiflix';
+import { Notify } from 'notiflix';
 
 import ContactList from './ContactList/ContactList';
 import ContactForm from './ContactForm/ContactForm';
